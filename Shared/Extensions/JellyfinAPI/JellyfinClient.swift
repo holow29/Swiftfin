@@ -22,6 +22,6 @@ extension JellyfinClient {
     }
 
     func fullURL(with path: String) -> URL {
-        URL(string: configuration.url.absoluteString + path)!
+        URL(string: configuration.url.absoluteString.trimmingCharacters(in: CharacterSet(["/"])) + path)!
     }
 }
