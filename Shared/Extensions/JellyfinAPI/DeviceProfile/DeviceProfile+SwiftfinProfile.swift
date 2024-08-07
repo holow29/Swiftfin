@@ -93,6 +93,8 @@ extension DeviceProfile {
             SubtitleProfile(format: "jacosub", method: .external),
         ]
 
+        profile.codecProfiles = []
+
         return profile
     }
 }
