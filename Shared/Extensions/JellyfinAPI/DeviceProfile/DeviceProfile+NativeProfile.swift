@@ -85,6 +85,23 @@ extension DeviceProfile {
             SubtitleProfile(format: "cc_dec", method: .embed),
         ]
 
+        let opusCodecConditions: [ProfileCondition] = [
+            ProfileCondition(
+                condition: .lessThanEqual,
+                isRequired: true,
+                property: .audioChannels,
+                value: "2"
+            ),
+        ]
+
+        profile.codecProfiles = [
+            CodecProfile(
+                applyConditions: opusCodecConditions,
+                codec: "opus",
+                type: .videoAudio
+            ),
+        ]
+
         return profile
     }
 }
